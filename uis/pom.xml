@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>biglybt-ui</artifactId>
     <packaging>takari-jar</packaging>
@@ -8,7 +7,9 @@
     <parent>
         <groupId>com.biglybt</groupId>
         <artifactId>biglybt-parent</artifactId>
-        <version>3.4.0.1-SNAPSHOT</version>
+        <!-- begin of code added by maintainer -->
+        <version>2.8.0.0</version>
+        <!-- end of code added by maintainer -->
     </parent>
 
     <dependencies>
@@ -71,6 +72,9 @@
                             </dependencyReducedPomLocation>
                             <artifactSet>
                                 <excludes>
+                                    <!-- begin of code added by maintainer -->
+                                    <exclude>org.eclipse.swt:org.eclipse.swt</exclude>
+                                    <!-- end of code added by maintainer -->
                                     <exclude>org.eclipse.swt:org.eclipse.swt.win32.win32.x86</exclude>
                                     <exclude>org.eclipse.swt:org.eclipse.swt.cocoa.macosx.x86_64</exclude>
                                     <exclude>org.eclipse.swt:org.eclipse.swt.gtk.linux.x86_64</exclude>
@@ -78,12 +82,10 @@
                                 </excludes>
                             </artifactSet>
                             <transformers><!-- to avoid having code in the jar (safety net)-->
-                                <transformer
-                                    implementation="org.apache.maven.plugins.shade.resource.DontIncludeResourceTransformer">
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.DontIncludeResourceTransformer">
                                     <resource>.java</resource>
                                 </transformer>
-                                <transformer
-                                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <manifestEntries>
                                         <Main-Class>com.biglybt.ui.Main</Main-Class>
                                         <Class-Path>. swt.jar commons-cli.jar</Class-Path>
@@ -94,6 +96,9 @@
                                 <filter>
                                     <artifact>com.biglybt:biglybt-core</artifact>
                                     <excludes>
+                                        <!-- begin of code added by maintainer -->
+                                        <exclude>org.eclipse.swt:org.eclipse.swt</exclude>
+                                        <!-- end of code added by maintainer -->
                                         <exclude>META-INF/MANIFEST.MF</exclude>
                                         <exclude>META-INF/takari/export-package</exclude>
                                     </excludes>
@@ -101,6 +106,9 @@
                                 <filter>
                                     <artifact>com.biglybt:biglybt-ui</artifact>
                                     <excludes>
+                                        <!-- begin of code added by maintainer -->
+                                        <exclude>org.eclipse.swt:org.eclipse.swt</exclude>
+                                        <!-- end of code added by maintainer -->
                                         <exclude>META-INF/MANIFEST.MF</exclude>
                                         <exclude>META-INF/takari/export-package</exclude>
                                     </excludes>
@@ -151,9 +159,7 @@
                                             <include name="com/biglybt/pif/**"/>
                                             <include name="com/biglybt/ui/swt/pif/**"/>
                                         </patternset>
-                                        <jar
-                                            destfile="${project.build.directory}/BiglyBT-${project.version}-pluginapi.jar"
-                                            level="9">
+                                        <jar destfile="${project.build.directory}/BiglyBT-${project.version}-pluginapi.jar" level="9">
                                             <fileset dir="${project.basedir}/../core/target/classes">
                                                 <patternset refid="pluginapi.inc"/>
                                             </fileset>
