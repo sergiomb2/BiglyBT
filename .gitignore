@@ -185,3 +185,5 @@ Bigly*.jar
 */plugins/azupdater/plugin.properties
 /*.ddl
 /libOSXAccess.jnilib
+*rej
+*orig
