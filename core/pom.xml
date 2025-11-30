@@ -82,10 +82,6 @@
 									<target>
 										<delete file="src/META-INF/services/sun.net.spi.nameservice.NameServiceDescriptor"/>
 										<delete file="src/com/biglybt/core/util/spi/AENameServiceDescriptor.java"/>
-										<copy file="src/com/biglybt/internat/MessagesBundle_iw_IL.properties"
-													tofile="${project.build.outputDirectory}/com/biglybt/internat/MessagesBundle_he_IL.properties"/>
-										<copy file="src/com/biglybt/internat/MessagesBundle_in_ID.properties"
-													tofile="${project.build.outputDirectory}/com/biglybt/internat/MessagesBundle_id_ID.properties"/>
 										</target>
 								</configuration>
 								<goals>
